@@ -8,11 +8,11 @@ const App=()=>
     let newCTtime=new Date().toLocaleTimeString();
     setCTime(newCTtime);
   }
-
+setInterval(UpdateTime,1000);
   return(
     <>
       <h1>{cTime}</h1>
-      <button onClick={UpdateTime}>GetTime</button>
+     
     </>
   )
 
