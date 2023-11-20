@@ -7,6 +7,7 @@ const App = () => {
   const [name, setName] = useState('Click me');//for button text change
   const [inpname, setInpName] = useState("");//inputname for input field
   const [fullName, setFullName] = useState();//to display name from input field only after submit button is clicked
+  const [lastName, setLastName] = useState("");//to set  lastname from input field
 
 
   const UpdateTime = () => {
@@ -42,7 +43,12 @@ const App = () => {
   }
 
   const SubmitHandler = () => {
-    setFullName(inpname);
+    setFullName(inpname+lastName);
+
+  }
+  const Display2= (event)=>
+  {
+    setLastName(event.target.value);
 
   }
 
@@ -58,7 +64,8 @@ const App = () => {
       <div>
         <p>This is simple form without form tag</p>
         <h1>Hello {fullName}</h1>
-        <input type="text" onChange={Display} />
+        <input type="text" placeholder="Enter first Name" onChange={Display} /><br/>
+        <input type="text"  placeholder="Enter last Name" onChange={Display2} />
         <button onClick={SubmitHandler} >Submit</button>
       </div>
     </>
