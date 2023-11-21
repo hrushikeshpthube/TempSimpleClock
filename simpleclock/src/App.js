@@ -42,12 +42,12 @@ const App = () => {
     setInpName(event.target.value);
   }
 
-  const SubmitHandler = () => {
-    setFullName(inpname+lastName);
+  const SubmitHandler = (event) => {
+    event.preventDefault();//to avoid default behaviour of form tag to refresh page on submit.
+    setFullName(inpname + lastName);
 
   }
-  const Display2= (event)=>
-  {
+  const Display2 = (event) => {
     setLastName(event.target.value);
 
   }
@@ -64,9 +64,13 @@ const App = () => {
       <div>
         <p>This is simple form without form tag</p>
         <h1>Hello {fullName}</h1>
-        <input type="text" placeholder="Enter first Name" onChange={Display} /><br/>
-        <input type="text"  placeholder="Enter last Name" onChange={Display2} />
-        <button onClick={SubmitHandler} >Submit</button>
+        <form onSubmit={SubmitHandler}>
+          <div>
+            <input type="text" placeholder="Enter first Name" onChange={Display} /><br />
+            <input type="text" placeholder="Enter last Name" onChange={Display2} />
+            <button type="submit" >Submit</button>
+          </div>
+        </form>
       </div>
     </>
 
