@@ -4,7 +4,7 @@ const App = () => {
 
   const [cTime, setCTime] = useState(newTime);//for time
   const [bg, setBg] = useState('red');//for background change 
-  const [name, setName] = useState('Click me');//for button text change
+  const [name, setName] = useState('Click or Double Click me');//for button text change
 
   const [fullName, setFullName] = useState({
     firstname: "",
@@ -115,20 +115,20 @@ This is a common pattern in React when you want to update a specific property in
 
   return (
     <>
-      <div style={{ backgroundColor: bg }}>
+      <div className={`container ${bg}` }>
 
         <h1>{cTime}</h1>
-        <button onClick={BgUpdate} onDoubleClick={BgDoubleC}>{name}</button>
+        <button className="button"  onClick={BgUpdate} onDoubleClick={BgDoubleC}>{name}</button>
       </div>
 
 
-      <div>
+      <div className="form-container">
         <p>This is simple form without form tag</p>
         <h1>Hello {fullName.firstname} {fullName.lastName}</h1>
         <p>{fullName.email}</p>
         <p>{fullName.phone}</p>
         <form onSubmit={SubmitHandler}>
-          <div>
+          <div className="form-input">
             <input type="text"
               placeholder="Enter first Name"
               name="firstname"
@@ -153,7 +153,7 @@ This is a common pattern in React when you want to update a specific property in
               autoComplete="off"
               onChange={Display}
             /><br />
-            <button type="submit" >Submit</button>
+            <button className="submit-button" type="submit" >Submit</button>
           </div>
         </form>
       </div>
